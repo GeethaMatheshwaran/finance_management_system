@@ -23,14 +23,15 @@
                             <label for="user_password">Password</label>
                             <input type="password" class="form-control" id="user_password" name="user_password" placeholder="User Password">
                         </div>
-                        <button type="submit">Save Data</button>
+                        {{-- <button type="submit">Save Data</button> --}}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </form>
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
         </div>
     </div>

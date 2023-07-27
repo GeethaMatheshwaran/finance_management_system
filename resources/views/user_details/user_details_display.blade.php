@@ -14,79 +14,54 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="../assets/css/customer_display.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     @include('..\user_details\user_creation');
 </head>
 
 <body>
     <h1 align="center" class="my-5">User Details</h1>
-    {{-- modal content start --}}
-    <!-- Button trigger modal -->
     <div class="container my-5 text-right">
         <button type="button" class="btn btn-success " data-toggle="modal" data-target="#user_creation_modal">
             Add New User
         </button>
     </div>
 
-    <!-- Modal -->
-
-    {{-- modal content end --}}
 
     {{-- TABLE START  --}}
     <div>
+
         <table align="center">
-            <tr>
-                <th>Customer Name</th>
-                <th>Age</th>
-                <th>Address</th>
-                <th>Addhar Card No</th>
-                <th>Phone No</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>Sangeetha</td>
-                <td>21</td>
-                <td>Solar , Erode - 638002</td>
-                <td>1234 5678 9012</td>
-                <td>9788894897</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Sangeetha</td>
-                <td>21</td>
-                <td>Solar , Erode - 638002</td>
-                <td>1234 5678 9012</td>
-                <td>9788894897</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Sangeetha</td>
-                <td>21</td>
-                <td>Solar , Erode - 638002</td>
-                <td>1234 5678 9012</td>
-                <td>9788894897</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Sangeetha</td>
-                <td>21</td>
-                <td>Solar , Erode - 638002</td>
-                <td>1234 5678 9012</td>
-                <td>9788894897</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-            <!-- Add more rows for additional customer -->
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>User Name</th>
+                    <th>User Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach ($user_details as $s_no => $user_details_data)
+                    <tr>
+                        <td>{{ $s_no + 1 }}</td>
+                        <td>{{ $user_details_data->user_name }}</td>
+                        <td>{{ $user_details_data->user_email }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#user_creation_modal">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </button>
+
+
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#delete_confirmation_modal">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>
 

@@ -18,10 +18,12 @@ use App\Http\Controllers\UserRegisterController;
 //     return view('welcome');
 // });
 
-Route::view('customer_display_uri','customer_details.customer_details_display');
+//DISPLAY THE USER DETAILS
+Route::get('/user_details_uri', [UserRegisterController::class,'show_user_details']);
 
-Route::view('user_details_uri','user_details.user_details_display');
-
+//STORE USER DETAILS
 Route::post('/store_user_details', [UserRegisterController::class,'store_user_details_method']);
+
+Route::view('customer_display_uri','customer_details.customer_details_display');
 
 
